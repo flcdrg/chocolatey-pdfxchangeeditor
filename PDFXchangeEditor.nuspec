@@ -13,7 +13,7 @@
     <copyright>1997-2013 Tracker Software Products</copyright>
     <licenseUrl>http://www.tracker-software.com/PDFVLicense.pdf</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <!--<iconUrl>https://github.com/__CHOCO_PKG_OWNER_REPO__/raw/master/PDFXchangeEditor/PDFXchangeEditor.gif</iconUrl>-->
+    <iconUrl>https://raw.github.com/calwell/nugetpackages/master/PDFXchangeEditor/PDFXchangeEditor.gif</iconUrl>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
