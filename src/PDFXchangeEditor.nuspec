@@ -12,22 +12,21 @@
     <iconUrl>http://cdn.rawgit.com/flcdrg/chocolatey-pdfxchangeeditor/master/icons/pdfxchangeeditor.png</iconUrl>
     <copyright>1997-2016 Tracker Software Products</copyright>
     <licenseUrl>http://www.tracker-software.com/licensing</licenseUrl>
-
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <!--<docsUrl>At what url are the software docs located?</docsUrl>-->
-    <!--<mailingListUrl></mailingListUrl>-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <docsUrl>http://help.tracker-software.com/EUM/default.aspx?pageid=Welcome</docsUrl>
+    <mailingListUrl>http://www.tracker-software.com/forum3/viewforum.php?f=62&amp;sid=92e1a1a4b8989cac9a2fd80c94747be5</mailingListUrl>
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>PDFXchangeEditor pdf reader editor ocr pdfxchangeviewer admin</tags>
     <summary>The smallest, fastest, most feature-rich PDF editor/viewer available! Create, View, Edit, Annotate, OCR and Digitally Sign PDF files plus much more..</summary>
     <description>
-Designed for anyone from home users to large corporate environments that wish to View/Edit/Modify and even OCR Image based PDF files on their Windows PC's. There is now a FREE pdf reader alternative to the Adobe Reader that truly raises the bar! The PDF-XChange Editor is smaller, faster and more feature rich than any other FREE PDF Reader/ PDF Viewer/ PDF Editor available on the market. This free pdf editor download also allows users to try the extended functionality offered by the licensed PDF-XChange Editor in evaluation mode - for free. No PDF reader or Viewer offers more features than PDF-XChange - or does so without compromising performance, quality or security. Checkout the feature list below and save $100's in unnecessary expenditure on your PDF software solution today.    
+Designed for anyone from home users to large corporate environments that wish to View/Edit/Modify and even OCR Image based PDF files on their Windows PC's. There is now a FREE pdf reader alternative to the Adobe Reader that truly raises the bar! The PDF-XChange Editor is smaller, faster and more feature rich than any other FREE PDF Reader/ PDF Viewer/ PDF Editor available on the market. This free pdf editor download also allows users to try the extended functionality offered by the licensed PDF-XChange Editor in evaluation mode - for free. No PDF reader or Viewer offers more features than PDF-XChange - or does so without compromising performance, quality or security.   
     </description>
     <releaseNotes>
 version 6.0.317 release - 23-03-2016
     
 #### Newly added feature
 
-* Added support of the following Microsoft Office file formats: \*.docm;\*.dot;\*.dotx;\*.dotm;\*.xlsm;\*.xlt;\*.xltx;*.xltm;\*.pptm;\*.pot;\*.potx;\*.potm;\*.vsdm;\*.vss;\*.vssx;\*.vssm;\*.vdw;\*.vst;\*.vstx;\*.vstm.
+* Editor	Added support of the following Microsoft Office file formats: \*.docm;\*.dot;\*.dotx;\*.dotm;\*.xlsm;\*.xlt;\*.xltx;*.xltm;\*.pptm;\*.pot;\*.potx;\*.potm;\*.vsdm;\*.vss;\*.vssx;\*.vssm;\*.vdw;\*.vst;\*.vstx;\*.vstm.
 * Editor	Added feature of enabling/disabling macros in Microsoft Office documents with macros support
 * Editor	Added check for inactivated Microsoft Office installation (2010, 2013, 2016 Office supported).
 * Editor	Added check for disabled with GPO Microsoft Office XPS Add-in.
