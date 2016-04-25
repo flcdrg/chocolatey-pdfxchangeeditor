@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>PDFXchangeEditor</id>
-    <version>6.0.317</version>
+    <version>6.0.317.1</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-pdfxchangeeditor</packageSourceUrl>
     <owners>flcdrg, calwell</owners>
     <title>PDF-XChange Editor</title>
@@ -22,6 +22,18 @@
 Designed for anyone from home users to large corporate environments that wish to View/Edit/Modify and even OCR Image based PDF files on their Windows PC's. There is now a FREE pdf reader alternative to the Adobe Reader that truly raises the bar! The PDF-XChange Editor is smaller, faster and more feature rich than any other FREE PDF Reader/ PDF Viewer/ PDF Editor available on the market. This free pdf editor download also allows users to try the extended functionality offered by the licensed PDF-XChange Editor in evaluation mode - for free. No PDF reader or Viewer offers more features than PDF-XChange - or does so without compromising performance, quality or security.   
     </description>
     <releaseNotes>
+##### Install options
+* DESKTOP_SHORTCUTS=1/0
+* NOUPDATER=0/1
+* VIEW_IN_BROWSERS=1/0
+* SET_AS_DEFAULT=1/0
+* DESKTOP_SHORTCUTS=1/0
+* PROGRAMSMENU_SHORTCUTS=1/0
+Can be applied like: <em></em>choco install pdfxchangeeditor --ia "NOUPDATER=1 VIEW_IN_BROWSERS=0"</em>
+
+version 6.0.317.1 release - Not listed
+No notes provided.
+
 version 6.0.317 release - 23-03-2016
     
 #### Newly added feature
