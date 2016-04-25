@@ -15,9 +15,9 @@ $packageArgs = @{
 
   # optional, highly recommended
   softwareName  = 'PDF-XChange Editor' #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
-  checksum      = '056BB302045AA236BCBC1662FEEC1896'
+  checksum      = '6EEFC5F1629D9CB76E3283114453F089'
   checksumType  = 'md5' #default is md5, can also be sha1
-  checksum64    = '27C198C23F46B70D24ED76D41AD91B1D'
+  checksum64    = '5D3039D213A7CE0CA9DA9260E3AC2D61'
   checksumType64= 'md5' #default is checksumType
 }
 
