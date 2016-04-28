@@ -58,7 +58,7 @@ if ($packageParameters) {
 
     if ($arguments.ContainsKey("NoUpdater")) {
         Write-Host "You want NoUpdater"
-        $customArguments.Add("NOUPDATER", "0")
+        $customArguments.Add("NOUPDATER", "1")
     }
 
     if ($arguments.ContainsKey("NoViewInBrowsers")) {
