@@ -86,7 +86,7 @@ function Update-Version
     $ie = New-Object -ComObject InternetExplorer.Application
 
     $ie.Silent = $true
-    $ie.Navigate("http://www.tracker-software.com/PDFXE_history.html")
+    $ie.Navigate("https://www.tracker-software.com/PDFXE_history.html")
     $ie.Visible = $true
 
     while($ie.Busy) { Start-Sleep -Milliseconds 100 }

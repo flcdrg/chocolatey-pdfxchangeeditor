@@ -1,8 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'; # stop on all errors
 $packageName = 'PDFXchangeEditor' 
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'http://www.tracker-software.com/downloads/EditorV6.x86.msi' # download url
-$url64      = 'http://www.tracker-software.com/downloads/EditorV6.x64.msi'
+$url        = 'https://www.tracker-software.com/downloads/EditorV6.x86.msi' # download url
+$url64      = 'https://www.tracker-software.com/downloads/EditorV6.x64.msi'
 
 # http://help.tracker-software.com/EUM/default.aspx?pageid=PDFXEdit3:switches_for_msi_installers
 
