@@ -9,12 +9,12 @@
     <title>PDF-XChange Editor</title>
     <authors>Tracker Software</authors>
     <projectUrl>https://www.tracker-software.com/product/pdf-xchange-editor</projectUrl>
-    <iconUrl>http://cdn.rawgit.com/flcdrg/chocolatey-pdfxchangeeditor/master/icons/pdfxchangeeditor.png</iconUrl>
+    <iconUrl>https://cdn.rawgit.com/flcdrg/chocolatey-pdfxchangeeditor/master/icons/pdfxchangeeditor.png</iconUrl>
     <copyright>1997-2016 Tracker Software Products</copyright>
-    <licenseUrl>http://www.tracker-software.com/licensing</licenseUrl>
+    <licenseUrl>https://www.tracker-software.com/licensing</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <docsUrl>http://help.tracker-software.com/EUM/default.aspx?pageid=Welcome</docsUrl>
-    <mailingListUrl>http://www.tracker-software.com/forum3/viewforum.php?f=62</mailingListUrl>
+    <mailingListUrl>https://www.tracker-software.com/forum3/viewforum.php?f=62</mailingListUrl>
     <!--<bugTrackerUrl></bugTrackerUrl>-->
     <tags>PDFXchangeEditor pdf reader editor ocr pdfxchangeviewer admin</tags>
     <summary>The smallest, fastest, most feature-rich PDF editor/viewer available! Create, View, Edit, Annotate, OCR and Digitally Sign PDF files plus much more..</summary>
