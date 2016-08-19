@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>PDFXchangeEditor</id>
-    <version>6.0.317.1</version>
+    <version>6.0.317.2</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-pdfxchangeeditor</packageSourceUrl>
     <owners>flcdrg, calwell</owners>
     <title>PDF-XChange Editor</title>
