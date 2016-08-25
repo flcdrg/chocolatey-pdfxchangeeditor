@@ -103,7 +103,7 @@ function Update-InstallScript()
     $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
 
     $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x64.msi"
-    $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
+    $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum64 = '$($hash.Hash)'"
 
     $contents | Out-File $installScript -Encoding Utf8
 
