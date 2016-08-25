@@ -80,6 +80,37 @@ function Parse-ReleaseNotes($html)
 
 }
 
+function Calculate-Hash($url)
+{
+    $tempFile = New-TemporaryFile
+
+    Invoke-WebRequest -Uri $url -OutFile $tempFile
+
+    $hash = Get-FileHash $tempFile -Algorithm SHA256
+
+    Remove-Item $tempFile
+
+    $hash
+}
+
+function Update-InstallScript()
+{
+    $installScript = Join-Path $PSScriptRoot "src/tools/chocolateyInstall.ps1"
+    $contents = Get-Content $installScript -Encoding Utf8
+    #$newContents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}\.\d{1,}'", "'$version'"
+
+    $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x86.msi"
+    $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
+
+    $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x64.msi"
+    $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
+
+    $contents | Out-File $installScript -Encoding Utf8
+
+    Write-Host
+    Write-Host "Updated chocolateyInstall.ps1."
+}
+
 function Update-Version
 {
     # We use IE because the web page is using JavaScript to dynamically show version release notes
@@ -129,3 +160,4 @@ function Update-Version
 }
 
 Update-Version
+Update-InstallScript

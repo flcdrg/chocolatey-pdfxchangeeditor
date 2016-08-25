@@ -4,8 +4,6 @@ $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url        = 'https://www.tracker-software.com/downloads/EditorV6.x86.msi' # download url
 $url64      = 'https://www.tracker-software.com/downloads/EditorV6.x64.msi'
 
-# http://help.tracker-software.com/EUM/default.aspx?pageid=PDFXEdit3:switches_for_msi_installers
-
 $packageArgs = @{
   packageName   = $packageName
   unzipLocation = $toolsDir
@@ -15,22 +13,18 @@ $packageArgs = @{
   silentArgs = '/quiet /norestart'
   validExitCodes= @(0, 3010, 1641)
 
-  # optional, highly recommended
-  softwareName  = 'PDF-XChange Editor' #part or all of the Display Name as you see it in Programs and Features. It should be enough to be unique
+  softwareName  = 'PDF-XChange Editor'
 
-  # Tracker don't have unique URLs for each minor release, so we can't reliably use checksums
-  checksum      = ''
-  checksumType  = 'md5' #default is md5, can also be sha1
-  checksum64    = ''
-  checksumType64= 'md5' #default is checksumType
+  checksum = '6FCC288C886A1972EEF45E4254CC18F05E34DE2B0D1D03992B485F2DE5A37464'
+  checksumType  = 'sha256' 
+  checksum64 = '130007F2768930023DC603025A76488C73594A8871EEF20C8CE6B1BBC4EE28CA'
+  checksumType64= 'sha256' 
 }
 
 $arguments = @{}
 
-# Now we can use the $env:chocolateyPackageParameters inside the Chocolatey package
 $packageParameters = $env:chocolateyPackageParameters
 
-# Now parse the packageParameters using good old regular expression
 if ($packageParameters) {
     $match_pattern = "\/(?<option>([a-zA-Z]+)):(?<value>([`"'])?([a-zA-Z0-9- _\\:\.]+)([`"'])?)|\/(?<option>([a-zA-Z]+))"
     $option_name = 'option'
@@ -49,6 +43,7 @@ if ($packageParameters) {
         Throw "Package Parameters were found but were invalid (REGEX Failure)"
     }
 
+    # http://help.tracker-software.com/EUM/default.aspx?pageid=PDFXEdit3:switches_for_msi_installers
     $customArguments = @{}
 
     if ($arguments.ContainsKey("NoDesktopShortcuts")) {
@@ -83,7 +78,5 @@ if ($packageParameters) {
 if ($customArguments.Count) { 
     $packageArgs.silentArgs += " " + (($customArguments.GetEnumerator() | % { "$($_.Name)=$($_.Value)" } ) -join " ")
 }
-
-
 
 Install-ChocolateyPackage @packageArgs
