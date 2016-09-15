@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>PDFXchangeEditor</id>
-    <version>6.0.317.2</version>
+    <version>6.0.318.0</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-pdfxchangeeditor</packageSourceUrl>
     <owners>flcdrg, calwell</owners>
     <title>PDF-XChange Editor</title>
@@ -34,36 +34,7 @@ These parameters can be passed to the installer with the use of `-params`.
 For example: `-params '"/NoDesktopShortcuts"'`.
 
 </description>
-    <releaseNotes>version 6.0.317.1 release - 19-04-2016
-Requires maintenance through 23-03-2016
-
-#### Newly added feature
-
-* Editor SDK: added new feature IPXV_Document::DiscardPDFACompilance().
-
-#### A reported error or bug was fixed
-
-* Find/Search: fixed issue with search speed (introduced in build 317). (T# 3491). 
-		 ([24522](http://www.tracker-software.com/forum3/viewtopic.php?t=24522))
-* Improved font metrics correction (text may have been partially visible). (T# 3472)
-* Fixed /Crypt filter handling (Editor was not able to save some files). (T# 3498)
-* Improved generating printing appearance for popup notes.
-* Form Editor honours tool style on field creation. (T# 3493)
-* Fixed issue with saving documents protected by FileOpen security handler. (T# 3445)
-* Find/Search: fixed issue with searching hypenated words.
-* Find/Search: fixed issue with positions of entry-marks in scroll-bars, for searching comments.
-* Find/Search: fixed issue displaying and using search results in FullSearch pane for some documents. (T# 3444).  ([25159](http://www.tracker-software.com/forum3/viewtopic.php?t=25159))
-* Fixed issue with handling keyboard cues in several message-boxes. Now handles hitting (Y)es/(N)o/(C)ancel keys. (T# 3526)
-* Editor SDK: fixed issue with Control.Doc property in cases where multiple controls used.
-* Editor SDK: fixed issue with IPXV_DocInfoBar::AddButton feature.
-* Editor SDK: fixed issue with handling the navigation keys inside embedded control.
-* GoogleDrive/DropBox: fixed issue with handling of &lt;backspace&gt;, &lt;tab&gt; and other navigation keys in 'Authentication/Authorization' window.
-
-#### Changed, reviewed, modified feature
-
-* Changed form formatting when document is opened. (T# 3386)
-* Added Euro currency to the list of currencies in Form Editor.
-* Minor fixes for SharePoint/DropBox/GoogleDrive plugins.</releaseNotes>
+    <releaseNotes>(no release notes had been published for 6.0.318.0 at the time of publishing the package)</releaseNotes>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
