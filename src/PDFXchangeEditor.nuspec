@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>PDFXchangeEditor</id>
-    <version>6.0.318.0</version>
+    <version>6.0.318.1</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-pdfxchangeeditor</packageSourceUrl>
     <owners>flcdrg, calwell</owners>
     <title>PDF-XChange Editor</title>
@@ -34,7 +34,7 @@ These parameters can be passed to the installer with the use of `-params`.
 For example: `-params '"/NoDesktopShortcuts"'`.
 
 </description>
-    <releaseNotes>(no release notes had been published for 6.0.318.0 at the time of publishing the package)</releaseNotes>
+    <releaseNotes>http://www.tracker-software.com/product/pdf-xchange-editor/history</releaseNotes>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
