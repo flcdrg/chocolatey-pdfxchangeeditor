@@ -95,25 +95,43 @@ function Calculate-Hash($url)
 
 function Update-InstallScript()
 {
-    $installScript = Join-Path $PSScriptRoot "src/tools/chocolateyInstall.ps1"
-    $contents = Get-Content $installScript -Encoding Utf8
-    #$newContents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}\.\d{1,}'", "'$version'"
+    # Get latest available version (can't rely on release notes being current!)
+    $response = Invoke-WebRequest -Uri https://www.tracker-software.com/version/pdf-xchange-editor
+    $content = $response.Content
+
+    # <b>Version 6.0.318.1</b>
+    $isMatch = $content -match "Version (?<release>\d{1,}\.\d{1,}\.\d{1,}.\d{1,})"
+
+    if ($isMatch) {
+
+        $version = $Matches.release
+
+        $installScript = Join-Path $PSScriptRoot "src/tools/chocolateyInstall.ps1"
+        $contents = Get-Content $installScript -Encoding Utf8
+        
+        $contents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}\.\d{1,}'", "'$version'"
 
     # According to http://www.tracker-software.com/forum3/viewtopic.php?f=62&t=26831, we can use http://www.docu-track.co.uk/builds/6.0.318.0/xxxx for version-specific URLs
 
-    $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x86.msi"
-    $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
+        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$version/EditorV6.x86.msi"
+        $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
 
-    $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x64.msi"
-    $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum64 = '$($hash.Hash)'"
+        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$version/EditorV6.x64.msi"
+        $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum64 = '$($hash.Hash)'"
 
-    $contents | Out-File $installScript -Encoding Utf8
+        $contents | Out-File $installScript -Encoding Utf8
 
-    Write-Host
-    Write-Host "Updated chocolateyInstall.ps1."
+        Write-Host
+        Write-Host "Updated chocolateyInstall.ps1."
+
+        return $version
+    } else {
+        Write-Error "Could not find Version on web page"
+        return $null
+    }
 }
 
-function Update-Version
+function Update-Version($downloadVersion)
 {
     # We use IE because the web page is using JavaScript to dynamically show version release notes
     $ie = New-Object -ComObject InternetExplorer.Application
@@ -139,7 +157,13 @@ function Update-Version
 
     if ($version)
     {
-       $releaseNotes = (Parse-ReleaseNotes $html) -join "`n"
+       if ($version -eq $downloadVersion) {
+           $releaseNotes = (Parse-ReleaseNotes $html) -join "`n"
+       } else {
+           $releaseNotes = "http://www.tracker-software.com/product/pdf-xchange-editor/history"
+           $version = $downloadVersion
+           Write-Host "Release notes not available for $version, so just using URL"
+       }
 
        $nuspec = Join-Path $PSScriptRoot "src/PDFXchangeEditor.nuspec"
        $contents = [xml] (Get-Content $nuspec -Encoding Utf8)
@@ -161,5 +185,8 @@ function Update-Version
     $ie.Quit()
 }
 
-Update-Version
-Update-InstallScript
+# $version = Update-InstallScript
+$version    = '6.0.318.1'
+if ($version -ne $null) {
+    Update-Version $version
+}
