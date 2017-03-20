@@ -99,6 +99,8 @@ function Update-InstallScript()
     $contents = Get-Content $installScript -Encoding Utf8
     #$newContents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}\.\d{1,}'", "'$version'"
 
+    # According to http://www.tracker-software.com/forum3/viewtopic.php?f=62&t=26831, we can use http://www.docu-track.co.uk/builds/6.0.318.0/xxxx for version-specific URLs
+
     $hash = Calculate-Hash "https://www.tracker-software.com/downloads/EditorV6.x86.msi"
     $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
 
@@ -117,7 +119,7 @@ function Update-Version
     $ie = New-Object -ComObject InternetExplorer.Application
 
     $ie.Silent = $true
-    $ie.Navigate("https://www.tracker-software.com/PDFXE_history.html")
+    $ie.Navigate("https://www.tracker-software.com/product/pdf-xchange-editor/history")
     $ie.Visible = $true
 
     while($ie.Busy) { Start-Sleep -Milliseconds 100 }
