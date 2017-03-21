@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>PDFXchangeEditor</id>
-    <version>6.0.318.1</version>
+    <version>6.0.321</version>
     <packageSourceUrl>https://github.com/flcdrg/chocolatey-pdfxchangeeditor</packageSourceUrl>
     <owners>flcdrg, calwell</owners>
     <title>PDF-XChange Editor</title>
@@ -34,7 +34,28 @@ These parameters can be passed to the installer with the use of `-params`.
 For example: `-params '"/NoDesktopShortcuts"'`.
 
 </description>
-    <releaseNotes>http://www.tracker-software.com/product/pdf-xchange-editor/history</releaseNotes>
+    <releaseNotes>version 6.0.321 release - 06-03-2017
+Requires maintenance through 06-03-2017
+
+#### Newly added feature
+
+* Added full support for SharePoint-files to be opened in the Editor's browser-plugin for Internet Explorer.
+* Added full support for SharePoint-files when opened in Editor by UNC path.  Example: '\\sharepoint-server\path-to-file...'.
+
+#### A reported error or bug was fixed
+
+* Fixed a potential application hang when using the Windows Clipboard.
+* Fixed a Typewriter tool issue when applied to a rotated document (T# 2680, 3810). ([24921](http://www.tracker-software.com/forum3/viewtopic.php?t=24921), [28217](http://www.tracker-software.com/forum3/viewtopic.php?t=28217))
+* Fixed issues with context menus in the edit-boxes that are located on the 'Customize Toolbars' and some other related dialogs.
+* Fixed an issue with docking floating panes/toolbars inside the Editor's browser-plugin for Internet Explorer.
+* Fixed a issue with opening one file in two separate instances of the Portable Editor (T# 3753). ([27381](http://www.tracker-software.com/forum3/viewtopic.php?t=27381))
+* Fixed an issue with multiple instances of Portable Editor. ([28223](http://www.tracker-software.com/forum3/viewtopic.php?t=28223))
+* Fixed application hang issue when a popup-menu is displayed in context of a VB6-client.
+* Fixed inappropriately disabled buttons in Images Editor.
+* Fixed non-functional "marked state"" checkbox in Comments View.
+* Fixed an issue with storing certificates chain in digital signatures.
+* Fixed an issue with preserving DPI settings on chaning Page Layout Mode. (T# 3819)
+</releaseNotes>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->

@@ -95,28 +95,34 @@ function Calculate-Hash($url)
 
 function Update-InstallScript()
 {
-    # Get latest available version (can't rely on release notes being current!)
-    $response = Invoke-WebRequest -Uri https://www.tracker-software.com/version/pdf-xchange-editor
+    # Get latest available version
+    $response = Invoke-WebRequest -Uri https://www.tracker-software.com/product/pdf-xchange-editor/history
     $content = $response.Content
 
     # <b>Version 6.0.318.1</b>
-    $isMatch = $content -match "Version (?<release>\d{1,}\.\d{1,}\.\d{1,}.\d{1,})"
+    $isMatch = $content -match "Version (?<release>\d{1,}\.\d{1,}\.\d{1,}(.\d{1,})?)"
 
     if ($isMatch) {
 
         $version = $Matches.release
 
+        if ($version.Split(".").Length -eq 3) {
+            $paddedVersion = $version + ".0"
+        } else {
+            $paddedVersion = $version
+        }
+
         $installScript = Join-Path $PSScriptRoot "src/tools/chocolateyInstall.ps1"
         $contents = Get-Content $installScript -Encoding Utf8
         
-        $contents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}\.\d{1,}'", "'$version'"
+        $contents = $contents -replace "'\d{1,}\.\d{1,}\.\d{1,}(\.\d{1,})?'", "'$paddedVersion'"
 
-    # According to http://www.tracker-software.com/forum3/viewtopic.php?f=62&t=26831, we can use http://www.docu-track.co.uk/builds/6.0.318.0/xxxx for version-specific URLs
+        # According to http://www.tracker-software.com/forum3/viewtopic.php?f=62&t=26831, we can use http://www.docu-track.co.uk/builds/6.0.318.0/xxxx for version-specific URLs
 
-        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$version/EditorV6.x86.msi"
+        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$paddedVersion/EditorV6.x86.msi"
         $contents = $contents -replace "checksum\s*=\s*'[a-fA-F0-9]+'", "checksum = '$($hash.Hash)'"
 
-        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$version/EditorV6.x64.msi"
+        $hash = Calculate-Hash "http://www.docu-track.co.uk/builds/$paddedVersion/EditorV6.x64.msi"
         $contents = $contents -replace "checksum64\s*=\s*'[a-fA-F0-9]+'", "checksum64 = '$($hash.Hash)'"
 
         $contents | Out-File $installScript -Encoding Utf8
@@ -153,7 +159,7 @@ function Update-Version($downloadVersion)
     $version = $ul.children[0].children[0].name
 
     # Current Version:&nbsp; 4.1.3, build 20814, released Dec. 17, 2015
-    $isMatch = $content -match "Current Version:&nbsp; (?<release>\d{1,}\.\d{1,}\.\d{1,}), build (?<build>\d{1,}), released (?<month>[A-Za-z]{3})\. (?<day>[0-9]{1,2})\, (?<year>[0-9]{4})"
+    $isMatch = $content -match "version \d{1,}\.\d{1,}\.\d{1,}(\.\d{1,})?"
 
     if ($version)
     {
@@ -185,8 +191,8 @@ function Update-Version($downloadVersion)
     $ie.Quit()
 }
 
-# $version = Update-InstallScript
-$version    = '6.0.318.1'
+$version = Update-InstallScript
+# $version    = '6.0.321'
 if ($version -ne $null) {
     Update-Version $version
 }
